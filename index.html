@@ -8,13 +8,33 @@
 <style>
   body {
     font-family: Georgia, 'Times New Roman', serif;
-    max-width: 640px;
-    margin: 0 auto;
+    margin: 0;
     padding: 3em 1.25em 4em;
     color: #222;
-    background: #fff;
     line-height: 1.55;
     font-size: 17px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background:
+      radial-gradient(ellipse 80% 60% at 15% -10%, rgba(99, 102, 241, 0.14), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 95% 15%, rgba(56, 189, 248, 0.13), transparent 60%),
+      radial-gradient(ellipse 75% 60% at 50% 110%, rgba(244, 114, 182, 0.10), transparent 60%),
+      #fbfbfd;
+    background-attachment: fixed;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 14px;
+    padding: 2.5em 2.5em 2em;
+    box-shadow: 0 8px 40px rgba(60, 60, 120, 0.08);
+    backdrop-filter: blur(6px);
+  }
+  @media (max-width: 600px) {
+    body { padding: 1em 0.6em 2em; }
+    main { padding: 1.5em 1.25em; }
   }
   h1 {
     font-size: 1.9em;
@@ -43,6 +63,7 @@
 </style>
 </head>
 <body>
+<main>
 
 <h1>Omer Kus</h1>
 <p class="subtitle">Machine Learning Engineer</p>
@@ -93,5 +114,6 @@ samples, improving downstream classifier performance on limited datasets.
 Omer Kus · Izmir, Turkey
 </footer>
 
+</main>
 </body>
 </html>
