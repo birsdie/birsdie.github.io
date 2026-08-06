@@ -6,112 +6,182 @@
 <title>Omer Kus</title>
 <meta name="description" content="Omer Kus — machine learning engineer working on image generation models, diffusion distillation, and inference optimization.">
 <style>
+  :root {
+    --accent: #3f51b5;
+    --ink: #1f2024;
+    --muted: #6b6f76;
+    --line: #e6e8ec;
+  }
+  * { box-sizing: border-box; }
   body {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 3em 1.25em 4em;
-    color: #222;
-    line-height: 1.55;
-    font-size: 17px;
-    min-height: 100vh;
-    box-sizing: border-box;
-    background:
-      radial-gradient(ellipse 80% 60% at 15% -10%, rgba(99, 102, 241, 0.14), transparent 60%),
-      radial-gradient(ellipse 70% 55% at 95% 15%, rgba(56, 189, 248, 0.13), transparent 60%),
-      radial-gradient(ellipse 75% 60% at 50% 110%, rgba(244, 114, 182, 0.10), transparent 60%),
-      #fbfbfd;
-    background-attachment: fixed;
+    padding: 4em 1.5em 5em;
+    background: #fff;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
-  main {
-    max-width: 640px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 14px;
-    padding: 2.5em 2.5em 2em;
-    box-shadow: 0 8px 40px rgba(60, 60, 120, 0.08);
-    backdrop-filter: blur(6px);
-  }
-  @media (max-width: 600px) {
-    body { padding: 1em 0.6em 2em; }
-    main { padding: 1.5em 1.25em; }
-  }
+  main { max-width: 720px; margin: 0 auto; }
+
+  /* header */
+  .profile { margin-bottom: 1.75em; }
   h1 {
-    font-size: 1.9em;
-    font-weight: normal;
-    margin-bottom: 0.1em;
+    font-size: 1.6em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 0.25em;
   }
+  .affiliation {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .bio { margin: 0 0 1.5em; }
+  .bio strong { font-weight: 500; }
+
+  /* link row */
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 0 0 1em;
+    padding: 0;
+    list-style: none;
+  }
+  .links a {
+    display: inline-block;
+    padding: 0.25em 0.85em;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.85em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(63, 81, 181, 0.04);
+  }
+
+  /* sections */
   h2 {
-    font-size: 1.15em;
-    font-weight: bold;
-    margin-top: 2.2em;
-    margin-bottom: 0.6em;
+    font-size: 1.25em;
+    font-weight: 500;
+    margin: 2.75em 0 0.25em;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid var(--line);
   }
-  hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 2.2em 0 0;
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  p { margin: 1em 0; }
+
+  ul.plain { padding-left: 1.2em; margin: 1em 0; }
+  ul.plain li { margin-bottom: 0.35em; }
+
+  /* publications */
+  .entry { margin: 1.6em 0; }
+  .entry .title {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.45;
+    text-decoration: none;
+    transition: color 0.15s ease;
   }
-  a { color: #1a0dab; }
-  a:hover { color: #551a8b; }
-  .subtitle { color: #666; margin-top: 0; }
-  .entry { margin-bottom: 1.4em; }
-  .entry b { display: block; }
-  .entry .meta { color: #666; font-size: 0.92em; }
-  .links { margin-top: 1em; }
-  footer { margin-top: 3.5em; color: #999; font-size: 0.85em; }
+  a.title:hover { color: var(--accent); text-decoration: none; }
+  .entry .authors {
+    display: block;
+    font-size: 0.9em;
+    color: var(--muted);
+    margin-top: 0.15em;
+  }
+  .entry .authors .me { color: var(--ink); font-weight: 500; }
+  .venue {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding: 0.1em 0.6em;
+    border-radius: 3px;
+    background: rgba(63, 81, 181, 0.09);
+    color: var(--accent);
+    font-size: 0.78em;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .entry .abstract {
+    margin: 0.5em 0 0;
+    font-size: 0.94em;
+    color: #4a4e56;
+  }
+
+  footer {
+    margin-top: 4em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--line);
+    color: #9aa0ad;
+    font-size: 0.85em;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 2.5em 1.25em 3em; }
+  }
 </style>
 </head>
 <body>
 <main>
 
-<h1>Omer Kus</h1>
-<p class="subtitle">Machine Learning Engineer</p>
+<header class="profile">
+  <h1>Omer Kus</h1>
+  <p class="affiliation">Machine Learning Engineer @ HUBX</p>
+</header>
 
-<p>
-I am a machine learning engineer at <b>HUBX</b>, working on image generation models.
-I love making them faster and specializing them for new domains.
+<p class="bio">
+I am a machine learning engineer at <strong>HUBX</strong>, working on image generation
+models. I love making them faster and specializing them for new domains.
 </p>
 
-<p class="links">
-<a href="mailto:omerkuss@outlook.com">Email</a> &nbsp;/&nbsp;
-<a href="https://ieeexplore.ieee.org/">IEEE Xplore</a> &nbsp;/&nbsp;
-<a href="https://github.com/">GitHub</a>
-</p>
+<ul class="links">
+  <li><a href="mailto:omerkuss@outlook.com">Email</a></li>
+  <li><a href="https://www.linkedin.com/in/omerkus/">LinkedIn</a></li>
+  <li><a href="https://github.com/birsdie">GitHub</a></li>
+</ul>
 
-<hr>
+<h2>Research Interests</h2>
 
-<h2>Interests</h2>
-
-<p>
-I am interested in generative models — diffusion models in particular — and in
-making them practical: model distillation, fast sampling, and inference
-optimization. I also enjoy working on multimodal learning, where vision models
-meet language and audio.
-</p>
-
-<hr>
+<ul class="plain">
+  <li>Generative models, with a focus on diffusion models.</li>
+  <li>Making them practical: model distillation, fast sampling, inference optimization.</li>
+  <li>Multimodal learning, where vision models meet language and audio.</li>
+</ul>
 
 <h2>Publications</h2>
 
 <div class="entry">
-<b>Iterative Semantic Refinement: A Vision Language Model-Driven Approach to Auto-Regressive Image Editing</b>
-<span class="meta">O. Kus et al. — IEEE, 2025</span>
-An iterative image editing framework driven by a vision-language model, using
-auto-regressive generation steps to refine images toward a target semantic
-description while preserving structural consistency.
+  <a class="title" href="https://ieeexplore.ieee.org/abstract/document/11101889">Iterative Semantic Refinement: A Vision Language Model-Driven Approach to Auto-Regressive Image Editing</a>
+  <span class="authors"><span class="me">O. Kus</span>, et al.</span>
+  <span class="venue">IEEE 2025</span>
+  <p class="abstract">
+    An iterative image editing framework driven by a vision-language model, using
+    auto-regressive generation steps to refine images toward a target semantic
+    description while preserving structural consistency.
+  </p>
 </div>
 
 <div class="entry">
-<b>Semantic Guided Autoregressive Diffusion Based Data Augmentation Using Visual Instructions</b>
-<span class="meta">O. Kus et al. — IEEE, 2025</span>
-A data augmentation pipeline using autoregressive diffusion guided by visual
-instructions to produce semantically consistent but visually diverse training
-samples, improving downstream classifier performance on limited datasets.
+  <a class="title" href="https://ieeexplore.ieee.org/abstract/document/11101945">Semantic Guided Autoregressive Diffusion Based Data Augmentation Using Visual Instructions</a>
+  <span class="authors"><span class="me">O. Kus</span>, et al.</span>
+  <span class="venue">IEEE 2025</span>
+  <p class="abstract">
+    A data augmentation pipeline using autoregressive diffusion guided by visual
+    instructions to produce semantically consistent but visually diverse training
+    samples, improving downstream classifier performance on limited datasets.
+  </p>
 </div>
 
 <footer>
-Omer Kus · Izmir, Turkey
+  Omer Kus · Izmir, Turkey
 </footer>
 
 </main>
